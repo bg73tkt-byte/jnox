@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/* =========================================================================
+   THÈME PAR DÉFAUT & SOMBRE (Studio Obsidian Profond)
+   ========================================================================= */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --font-display: 'Geist', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Geist', 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Fond de page sombre profond */
+  --bg: #0B0912;
+  --bg-soft: #0E0B16;
+
+  /* Surfaces & bordures */
+  --surface: #14111C;
+  --surface-elevated: #1B1726;
+  --surface-hover: #221D30;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Ombres */
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  /* Typographie */
+  --text: #F8F7FB;
+  --text-muted: #A39FB2;
+
+  /* Accents */
+  --accent: #9333EA;
+  --accent-hover: #A855F7;
+  --accent-subtle: rgba(168, 85, 247, 0.12);
+  --accent-glow: rgba(168, 85, 247, 0.22);
+
+  /* Boutons */
+  --btn-primary-bg: #9333EA;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover: #A855F7;
+
+  /* Navbar */
+  --navbar-bg: rgba(20, 17, 28, 0.75);
+  --navbar-border: rgba(255, 255, 255, 0.1);
+
+  /* Badges */
+  --badge-bg: #14111C;
+  --badge-border: rgba(255, 255, 255, 0.08);
+  --badge-text: #F8F7FB;
+
+  /* Carte vidéo */
+  --video-card-bg: #14111C;
+  --video-card-border: rgba(255, 255, 255, 0.08);
+  --video-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.5);
+
+  /* Aliases */
+  --bg-primary: var(--bg);
+  --bg-surface: var(--surface);
+  --bg-surface-elevated: var(--surface-elevated);
+  --bg-surface-hover: var(--surface-hover);
+  --bg-glass: var(--navbar-bg);
+  --border-glass: var(--navbar-border);
+  --text-primary: var(--text);
+  --text-secondary: var(--text-muted);
+}
+
+/* =========================================================================
+   THÈME CLAIR (Blanc Pur #FFFFFF)
+   ========================================================================= */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Fond de page, blanc pur */
+  --bg: #FFFFFF;
+  --bg-soft: #F6F5F9;
+
+  /* Surface & bordures */
+  --surface: #FFFFFF;
+  --surface-elevated: #F6F5F9;
+  --surface-hover: #F1EEF9;
+  --border: #E7E5EE;
+  --border-strong: #D5D2E2;
+  --border-subtle: #E7E5EE;
+
+  /* Ombres douces */
+  --shadow: 0 1px 2px rgba(20, 10, 40, 0.06), 0 8px 24px rgba(20, 10, 40, 0.06);
+  --shadow-soft: 0 1px 3px rgba(20, 10, 40, 0.04), 0 4px 12px rgba(20, 10, 40, 0.04);
+  --shadow-card: 0 1px 2px rgba(20, 10, 40, 0.06), 0 8px 24px rgba(20, 10, 40, 0.06);
+
+  /* Typographie */
+  --text: #0E0B16;
+  --text-muted: #5C5870;
+
+  /* Accents */
+  --accent: #7C3AED;
+  --accent-hover: #6D28D9;
+  --accent-subtle: #F1EEF9;
+  --accent-glow: transparent;
+
+  /* Bouton principal : fond #0E0B16, texte blanc */
+  --btn-primary-bg: #0E0B16;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover: #231E30;
+
+  /* Navbar : fond blanc translucide (rgba(255,255,255,.85)) + backdrop-blur + bordure fine, texte sombre */
+  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --navbar-border: #E7E5EE;
+
+  /* Badge "Disponible" : fond #F1EEF9, texte sombre, point vert */
+  --badge-bg: #F1EEF9;
+  --badge-border: #E7E5EE;
+  --badge-text: #0E0B16;
+
+  /* Carte vidéo (fond sombre pour le contraste vidéo, mais cadre blanc et ombre douce) */
+  --video-card-bg: #14111C;
+  --video-card-border: #E7E5EE;
+  --video-card-shadow: 0 1px 2px rgba(20, 10, 40, 0.06), 0 8px 24px rgba(20, 10, 40, 0.06);
+
+  /* Aliases */
+  --bg-primary: var(--bg);
+  --bg-surface: var(--surface);
+  --bg-surface-elevated: var(--surface-elevated);
+  --bg-surface-hover: var(--surface-hover);
+  --bg-glass: var(--navbar-bg);
+  --border-glass: var(--navbar-border);
+  --text-primary: var(--text);
+  --text-secondary: var(--text-muted);
+}
+
+/* =========================================================================
+   BASE STYLES & TRANSITIONS
+   ========================================================================= */
+html {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/* Transition douce de 300 ms sur background-color, color et border-color uniquement */
+html, body, header, nav, section, footer, div, p, h1, h2, h3, a, button, input {
+  transition-property: background-color, border-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Glow helper pour PDP (actif uniquement en mode sombre) */
+.hero-pdp-glow {
+  display: none;
+}
+[data-theme="dark"] .hero-pdp-glow {
+  display: block;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Studio Glass Card Utility */
+.studio-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition-property: background-color, border-color, color, box-shadow, transform;
+  transition-duration: 300ms;
+}
+
+.studio-card:hover {
+  border-color: var(--border-strong);
+}
+
+.studio-glass {
+  background: var(--navbar-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--navbar-border);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Marquee infinite animation */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-reverse 36s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}

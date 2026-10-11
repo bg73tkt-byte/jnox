@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/pdp.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jnox — Monteur Vidéo & Motion Designer</title>
+    <meta name="description" content="Portfolio de Jnox, monteur vidéo & motion designer. Montages sur mesure, rythme précis et rétention vidéo." />
+    
+    <!-- Anti-flash inline theme script -->
+    <script>
+      (function() {
+        try {
+          ['theme', 'color-theme', 'vite-ui-theme'].forEach(function(k) {
+            try { localStorage.removeItem(k); } catch(e) {}
+          });
+          var saved = localStorage.getItem('jnox-theme');
+          var theme = (saved === 'light' || saved === 'dark') 
+            ? saved 
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.classList.remove('light', 'dark');
+          document.documentElement.classList.add(theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Google Fonts: Geist & Manrope (Clean, Elegant, Studio Typography) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="antialiased selection:bg-purple-500/20 selection:text-purple-300">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
